@@ -24,7 +24,24 @@ const myNews = [
     }
 ];
 
+const Article = React.createClass({
+    render: function () {
+        const author = this.props.item.author;
+        const text = this.props.item.text;
+
+        return (
+            <div className="article">
+                <p className="news-author">{author}</p>
+                <p className="news-text">{text}</p>
+            </div>
+        );
+    }
+});
+
 const News = React.createClass({
+    propTypes: {
+        data: React.PropTypes.array.isRequired,
+    },
     render: function () {
         const data = this.props.data;
         var newsTemplates;
@@ -45,23 +62,10 @@ const News = React.createClass({
         return (
             <div className="news">
                 {newsTemplates}
-                <strong className={'news-count ' + (data.length > 0 ? '' : 'none')}>Всего новостей: {data.length}</strong>
+                <strong className={'news-count ' + (data.length > 0 ? '' : 'none')}>Всего
+                    новостей: {data.length}</strong>
             </div>
 
-        );
-    }
-});
-
-const Article = React.createClass({
-    render: function () {
-        const author = this.props.item.author;
-        const text = this.props.item.text;
-
-        return (
-            <div className="article">
-                <p className="news-author">{author}</p>
-                <p className="news-text">{text}</p>
-            </div>
         );
     }
 });
