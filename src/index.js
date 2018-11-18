@@ -440,6 +440,7 @@ const App = React.createClass({
             <div className="app">
                 <Add/>
                 <h3>Новости</h3>
+                <h3>Щас попробуем скинуть на удаленную ветку</h3>
                 <News data={this.state.news}/>
             </div>
         );
